@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MovieClassifier:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MovieClassifier_jar</output-path>
+    <root id="archive" name="MovieClassifier.jar">
+      <element id="module-output" name="MovieClassifier" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/org.tartarus.snowball.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/jcommon-1.0.15.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/swingx.jar" path-in-jar="/" />
+      <element id="file-copy" path="$PROJECT_DIR$/version5.csv" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="jcommon-1.0.15">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jcommon-1.0.15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/swingx.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inherit-compiler-output="true" inheritJdk="true">
+	<output-test url="file://$MODULE_DIR$/out/test/MovieClassifier"/>
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$"/>
+	<levels>
+		<level name="org.tartarus.snowball" value="project"/>
+		<level name="jcommon-1.0.15" value="project"/>
+		<level name="swingx" value="project"/>
+	</levels>
+</component>

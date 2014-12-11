@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="/MovieClassifier/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/org.tartarus.snowball"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jcommon-1.0.15"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/swingx"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

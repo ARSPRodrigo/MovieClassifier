@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="org.tartarus.snowball">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/org.tartarus.snowball.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

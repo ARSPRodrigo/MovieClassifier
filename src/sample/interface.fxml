@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="sample.Controller">
+    <columnConstraints>
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+    </rowConstraints>
+    <children>
+        <AnchorPane prefHeight="500.0" prefWidth="600.0">
+            <children>
+                <Label layoutX="46.0" layoutY="126.0" text="Type Your Plot:" />
+                <TextArea fx:id="plotArea" layoutX="46.0" layoutY="161.0" prefHeight="158.0" prefWidth="508.0" />
+                <ImageView fitHeight="91.0" fitWidth="253.0" layoutX="174.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Logo.png" />
+                    </image>
+                </ImageView>
+                <Button fx:id="btnFind" layoutX="46.0" layoutY="347.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="49.0" text="Find" textAlignment="CENTER" />
+                <Button fx:id="btnClear" layoutX="122.0" layoutY="347.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="49.0" text="Clear" textAlignment="CENTER" />
+                <Label layoutX="46.0" layoutY="394.0" text="Result" />
+                <Label fx:id="resultLabel" layoutX="126.0" layoutY="394.0" />
+                <ImageView fitHeight="63.0" fitWidth="576.0" layoutX="13.0" layoutY="434.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@footer.jpg" />
+                    </image>
+                </ImageView>
+                <Label layoutX="395.0" layoutY="470.0" text="© 2014 MovieGen University of Peradeniya" textAlignment="RIGHT">
+                    <font>
+                        <Font size="10.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </children>
+</GridPane>
