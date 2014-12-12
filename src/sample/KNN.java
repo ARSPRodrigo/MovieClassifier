@@ -3,20 +3,15 @@ package sample;
 import java.util.*;
 
 public class KNN {
-    //data stores in this array
-    static double [][] instances;
 
-public static String Main(double []query, int k,String [] movieInstances, double [][] data){
+public static String Main(double []query, String [] movieInstances, double [][] instances){
 
-    // add data to instances
-    instances = new double[data.length][data[0].length];
-    for(int i=0;i<data.length;i++){
-        System.arraycopy(data[i],0,instances[i],0,data[i].length);
-    }
     //k : # of neighbours
+    int k = movieInstances.length;
 
     //list to save movie data
     List<Movie> movieList = new ArrayList<Movie>();
+
     //list to save distance result
     List<Result> resultList = new ArrayList<Result>();
 
@@ -31,12 +26,11 @@ public static String Main(double []query, int k,String [] movieInstances, double
     for(Movie movie : movieList){
         double dist = 0.0;
         for(int j = 0; j < movie.movieAttributes.length; j++){
-            dist += Math.pow(movie.movieAttributes[j] - query[j], k) ;
+            dist += Math.pow(movie.movieAttributes[j] - query[j], k);
         }
         double distance = Math.sqrt( Math.abs(dist) );
         resultList.add(new Result(distance,movie.movieName));
     }
-
     Collections.sort(resultList, new DistanceComparator());
 
     double d = 0.0;
@@ -46,19 +40,7 @@ public static String Main(double []query, int k,String [] movieInstances, double
     }
     for(int x = 0; x < k; x++){
         b[x] = resultList.get(x).distance*100/d;
-        //System.out.println(b[x]);
     }
-
-    // prints the percentage values
-    /*for(int x = 0; x < k; x++){
-        System.out.println(resultList.get(x).movieName+ " .... " + b[x] +"%");
-    }*/
-    //System.out.println("/******************************/");
-
-    //prints the distance values
-    /*for(int x = 0; x < k; x++){
-        System.out.println(resultList.get(x).movieName+ " .... " + resultList.get(x).distance*100/d);
-    }*/
 
     /*
      * prints the types of new movie
@@ -66,15 +48,12 @@ public static String Main(double []query, int k,String [] movieInstances, double
      * prints which grater than that
      */
     String result = "";
-    //System.out.print("Class of new instance is: ");
     double a = 20;
     for(int x = 0; x < k; x++){
         if(b[x] < a) {
-            //System.out.print(resultList.get(x).movieName + " ");
             result += resultList.get(x).movieName + " ";
         }
     }
-    //System.out.print("\n");
     return result;
 }
 

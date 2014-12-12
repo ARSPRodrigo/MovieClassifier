@@ -9,11 +9,6 @@ import java.io.IOException;
  * Created by Prasanna on 12/4/2014.
  */
 public class CreateMatrices {
-    private static String version;     // CSV file which has the document term matrix
-
-    static {
-        version = "version5.csv";
-    }
 
     static String newPlot;                      // stores the words of new plot
     /*
@@ -34,33 +29,36 @@ public class CreateMatrices {
      * read CSV file
      * insert data into wordCountMatrix
      */
-    public static void createWordMatrix() throws IOException {
-        String fileName = version, line;
-        // create file reader
-        FileReader fileRd = new FileReader(fileName);
-        BufferedReader readFile = new BufferedReader(fileRd);
+    public static void createWordMatrix(String fileName){
+        try {
+            String line;
+            // create file reader
+            FileReader fileRd = new FileReader(fileName);
+            BufferedReader readFile = new BufferedReader(fileRd);
 
-        line = readFile.readLine();         // read the first line of words
-        line = line.replaceAll("\"","");    // replace all "s
-        wordMatrix = line.split(",");       // split with commas and insert into word matrix
-        wordCountMatrix = new double[movieInstances.length][wordMatrix.length]; // initialize wordCountMatrix
-        int i = 0;
-        while((line = readFile.readLine()) != null){
-            line = line.replaceAll("\"","");
-            String []newLine = line.split(",");
+            line = readFile.readLine();         // read the first line of words
+            line = line.replaceAll("\"", "");    // replace all "s
+            wordMatrix = line.split(",");       // split with commas and insert into word matrix
+            wordCountMatrix = new double[movieInstances.length][wordMatrix.length]; // initialize wordCountMatrix
+            int i = 0;
+            while ((line = readFile.readLine()) != null) {
+                line = line.replaceAll("\"", "");
+                String[] newLine = line.split(",");
 
-            // count the number of words in each type
-            double wordCount = 0;
-            for(String x: newLine) {
-                wordCount += Double.parseDouble(x);
+                // count the number of words in each type
+                double wordCount = 0;
+                for (String x : newLine) {
+                    wordCount += Double.parseDouble(x);
+                }
+                // insert each words' percentage occurrence
+                for (int j = 0; j < newLine.length; j++) {
+                    wordCountMatrix[i][j] = Double.parseDouble(newLine[j]) * 100 / wordCount;
+                }
+                i++;
             }
-            // insert each words' percentage occurrence
-            for(int j=0;j<newLine.length;j++) {
-                wordCountMatrix[i][j]= Double.parseDouble(newLine[j])*100/wordCount;
-            }
-            i++;
+        }catch (IOException e){
+            JOptionPane.showMessageDialog(null,"DataSet file "+fileName+" should be here");
         }
-        //System.out.println("createWordMatrix: Done");
     }
 
     /*
@@ -75,8 +73,6 @@ public class CreateMatrices {
         else {
             newPlot = RemoveStopWords.createCleanTxt(txtPlot);
         }
-        //System.out.println("newPlot: Done");
-        //System.out.println(newPlot);
     }
 
     /*
@@ -98,6 +94,7 @@ public class CreateMatrices {
             newWordMatrix[i] = count;                   // enter count to matrix
             i++;
         }
+
         /*
          * newPlotMatrix have
          * words which not used
@@ -122,9 +119,5 @@ public class CreateMatrices {
                 i++;
             }
         }
-        /*for(double []d: exWordCountMatrix){
-            System.out.println(Arrays.toString(d));
-        }*/
-        //System.out.println("newPlotMatrix: Done");
     }
 }
