@@ -2,6 +2,7 @@ package sample;
 
 import org.tartarus.snowball.EnglishSnowballStemmerFactory;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -46,9 +47,9 @@ public class RemoveStopWords {
             }
             //System.out.println(writeFile+" Done");
         }catch (FileNotFoundException x) {
-            System.exit(-1);
+            JOptionPane.showMessageDialog(null, "Enter your plot to find");
         } catch (IOException x) {
-            System.exit(-1);
+            JOptionPane.showMessageDialog(null, "Enter your plot to find");
         }
         return writeFile;
     }

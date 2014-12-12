@@ -24,6 +24,11 @@ public class Controller implements Initializable {
      * files use in th code
      */
     static String file = "plot.txt";       // the plot to find type
+    private static String version;     // CSV file which has the document term matrix
+
+    static {
+        version = "version5.csv";
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -40,10 +45,10 @@ public class Controller implements Initializable {
             public void handle(ActionEvent actionEvent) {
                 text = plotArea.getText();
                 try {
-                    CreateMatrices.createWordMatrix();
+                    CreateMatrices.createWordMatrix(version);
                     CreateMatrices.newPlot(file, text);
                     CreateMatrices.newPlotMatrix();
-                    resultLabel.setText(KNN.Main(CreateMatrices.exNewWordMatrix, CreateMatrices.movieInstances.length, CreateMatrices.movieInstances, CreateMatrices.exWordCountMatrix));
+                    resultLabel.setText(KNN.Main(CreateMatrices.exNewWordMatrix, CreateMatrices.movieInstances, CreateMatrices.exWordCountMatrix));
 
                 } catch (IOException e) {
                     e.printStackTrace();
