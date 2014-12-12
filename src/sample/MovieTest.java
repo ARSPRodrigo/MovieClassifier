@@ -12,11 +12,6 @@ public class MovieTest {
     static String file = "plot.txt";    // the plot to find type
     private String fName;               // test movie file
     private String typeName;            // test movie type
-    private static String version;     // CSV file which has the document term matrix
-
-    static {
-        version = "version5.csv";
-    }
 
     public MovieTest(String fileName, String genre){
         this.fName = fileName;
@@ -36,10 +31,10 @@ public class MovieTest {
             BufferedReader readFile = new BufferedReader(fileRd);
 
             while((line = readFile.readLine()) != null) {
-                CreateMatrices.createWordMatrix(version);
+                CreateMatrices.createWordMatrix();
                 CreateMatrices.newPlot(file, line);
                 CreateMatrices.newPlotMatrix();
-                String results = KNN.Main(CreateMatrices.exNewWordMatrix, CreateMatrices.movieInstances, CreateMatrices.exWordCountMatrix);
+                String results = KNN.Main(CreateMatrices.exNewWordMatrix, CreateMatrices.movieInstances.length, CreateMatrices.movieInstances, CreateMatrices.exWordCountMatrix);
                 if(results.contains(genre)){
                     //System.out.println(results);
                     countTrue++;
