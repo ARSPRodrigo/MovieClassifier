@@ -6,8 +6,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-
-import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -46,9 +44,9 @@ public class Controller implements Initializable {
                 text = plotArea.getText();
                 try {
                     CreateMatrices.createWordMatrix(version);
-                    CreateMatrices.newPlot(file, text);
-                    CreateMatrices.newPlotMatrix();
-                    resultLabel.setText(KNN.Main(CreateMatrices.exNewWordMatrix, CreateMatrices.movieInstances, CreateMatrices.exWordCountMatrix));
+                    NewPlotControl.newPlot(file,text);
+                    NewPlotMatrix.newPlotMatrix();
+                    resultLabel.setText(KNN.Main(NewPlotMatrix.exNewWordMatrix, CreateMatrices.movieInstances, NewPlotMatrix.exWordCountMatrix));
 
                 } catch (IOException e) {
                     e.printStackTrace();
